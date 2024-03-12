@@ -1,0 +1,54 @@
+---
+import JsIcon from "../icons/Js.astro";
+
+const TAGS = {
+	JS: {
+		name: "JavaScript",
+		class: "bg-black text-white",
+		icon: JsIcon,
+	},
+	NODE: {
+		name: "Node.js",
+		class: "bg-black text-white",
+		icon: JsIcon,
+	},
+};
+
+const PROJECTS = [
+	{
+		title: "VIPTop10.com | Laboratio",
+		description:
+			"Con mi colaboración con la empresa Laboratio, Desarrolle una pagina web intuitiva y atractiva que destacara las mejores categorías de lugares para visitar en diversos paises. Con implementacion efectiva de tecnologias permitió una navegacion fluida y una presentación visualmente atractivda de la informacion.",
+		link: "https://divize.io/challenges",
+		github: "https://github.com/JhonierSantana",
+		image: "/projects/project1.webp",
+		tags: [TAGS.JS, TAGS.NODE],
+	},
+];
+---
+
+{
+	PROJECTS.map(({ image, title, description, tags }) => (
+		<article>
+			<h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+			<p class="text-lg mb-4 text-pretty">{description}</p>
+			<ul class="flex gap-x-2 flex-row">
+				{tags.map((tag) => (
+					<li>
+						<span
+							class={` flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+						>
+							<tag.icon class="size-6" />
+							{tag.name}
+						</span>
+					</li>
+				))}
+			</ul>
+			<img
+				class="rounded shadow-2xl shadow-white/10"
+				src={image}
+				alt={`Captura de pantalla del proyecto ${image} `}
+			/>
+		</article>
+	))
+}
