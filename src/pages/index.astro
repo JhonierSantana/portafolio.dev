@@ -18,11 +18,16 @@ import Projects from "../components/Projects.astro";
 	description="Contrata a Jhonier Santana para crear tu aplicacion web. Desarrollador Full Stack."
 >
 	<main class="px-4">
-		<SectionContainer id="top" class="py-44 pb-24">
+		<SectionContainer id="top" class="py-44">
+			<img
+				class="rounded-full size-12"
+				src="../../public/jhoniers.jpg"
+				alt="Jhonier Foto"
+			/>
 			<h1
 				class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
 			>
-				Hey, soy Jhonier Santana
+				SOBRE MI
 				<a
 					href="https://www.linkedin.com/in/jhonier-yesid-santana-pedroza-457492265/"
 					target="_blank"
@@ -33,9 +38,14 @@ import Projects from "../components/Projects.astro";
 				</a>
 			</h1>
 			<h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
-				<span>+1.5 año de experiencia.</span>
-				<span class="text-yellow-200/90">Desarrollador full stack</span
-				>, Soy del Socorro Santander
+				<span
+					>Soy <span class="text-yellow-200/90"
+						>Desarrollador de Software Junior</span
+					> apasionado y altamente responsable, con mas de un año de dedicación
+					y estudios enfocados en el desarrollo tanto Fron-End como Back-End.
+					Soy del Socorro Santander y actualmente busco trabajo para ampliar
+					mi experiencia
+				</span>
 			</h2>
 			<nav class="flex gap-4 mt-8 flex-wrap">
 				<SocialPill
@@ -55,7 +65,7 @@ import Projects from "../components/Projects.astro";
 			</nav>
 		</SectionContainer>
 
-		<SectionContainer id="experiencia">
+		<SectionContainer id="experiencia" class="py-44">
 			<h2 class="text 3xl font-semibold mb-6 flex gap-x-3 item-center">
 				<BriefCaseIcon class="size-7" />
 				Experiencia
@@ -63,7 +73,7 @@ import Projects from "../components/Projects.astro";
 			<Experience />
 		</SectionContainer>
 
-		<SectionContainer id="portafolio">
+		<SectionContainer id="portafolio" class="py-44">
 			<h2 class="text 3xl font-semibold mb-6 flex gap-x-3 item-center">
 				<CodeIcon class="size-7" />
 				Portafolio
