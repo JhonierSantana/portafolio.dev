@@ -1,58 +1,81 @@
 ---
 import { TAGS } from "../components/Tags.astro";
+import SocialPill from "../icons/SocialPill.astro";
+import GithubIcon from "../icons/Github.astro";
+import WwwIcon from "../icons/Www.astro";
 
 const PROJECTS = [
-	{
-		title: "Front-End | VIPTop10.com | Laboratio",
-		description:
-			"Con mi colaboración con la empresa Laboratio, Desarrolle una basde de una pagina web intuitiva y atractiva que destacara las mejores categorías de lugares para visitar en diversos paises. Con implementacion efectiva de tecnologias permitió una navegacion fluida y una presentación visualmente atractivda de la informacion.",
-		link: "https://divize.io/challenges",
-		github: "https://github.com/JhonierSantana",
-		tags: [
-			TAGS.JS,
-			TAGS.NODE,
-			TAGS.REACT,
-			TAGS.HTML5,
-			TAGS.CSS,
-			TAGS.BOOSTRAP,
-		],
-		image: "/projects/project1.webp",
-	},
-	{
-		title: "Back-End | Airbnb Clone | Holberton",
-		description:
-			"Desarrolle un clon de Airbnb con implementackion de ORM(Object-Relational Mapping) y de comandos para la administracion de almacenamiento para mejorar la eficiencia en la gestion de datos, la implementacion de ORM permitió una representación mas natural de las entidades del sistema en el codigo, simplificando la manipulacion de datos y mejorando la legibilidad del código",
-		link: "https://divize.io/challenges",
-		github: "https://github.com/JhonierSantana",
-		tags: [TAGS.PYTHON, TAGS.FLASK, TAGS.MYSQL],
-		image: "/projects/project1.webp",
-	},
+  {
+    title: "Front-End | VIPTop10.com | Laboratio",
+    description:
+      "Con mi colaboración con la empresa Laboratio, Desarrolle una basde de una pagina web intuitiva y atractiva que destacara las mejores categorías de lugares para visitar en diversos paises. Con implementacion efectiva de tecnologias permitió una navegacion fluida y una presentación visualmente atractivda de la informacion.",
+    link: "https://capston-app.vercel.app/",
+    github: "https://github.com/JhonierSantana/capston-app",
+    tags: [TAGS.JS, TAGS.NODE, TAGS.REACT, TAGS.HTML5, TAGS.CSS, TAGS.BOOSTRAP],
+    image: "/projects/Capston.webp",
+    nameUrl: "VIPTop10.com",
+  },
+  {
+    title: "Back-End | Airbnb Clone | Holberton",
+    description:
+      "Desarrolle un clon de Airbnb con implementackion de ORM(Object-Relational Mapping) y de comandos para la administracion de almacenamiento para mejorar la eficiencia en la gestion de datos, la implementacion de ORM permitió una representación mas natural de las entidades del sistema en el codigo, simplificando la manipulacion de datos y mejorando la legibilidad del código",
+    github: "https://github.com/JhonierSantana/holbertonschool-AirBnB_clone_v4",
+    tags: [TAGS.PYTHON, TAGS.FLASK, TAGS.MYSQL],
+    image: "/projects/Airbn.webp",
+  },
+  {
+    title: "Full-Stack | Inventario TallerWeb | Jhonier Santana",
+    description:
+      "He desarrollador un sistema de inventario para un taller mecánico, conforme a las especificaciones proporcionadas. Este sistmea permite gestionar de manera eficiente el inventario de productos del taller, facilitando el registro, seguimiento y control de los productos disponibles.",
+    github: "https://github.com/JhonierSantana/InvWeb",
+    tags: [TAGS.PYTHON, TAGS.FLASK, TAGS.SQLITE, TAGS.HTML5, TAGS.CSS],
+    image: "/projects/InvW.webp",
+  },
 ];
 ---
 
 {
-	PROJECTS.map(({ image, title, description, tags }) => (
-		<article class="pb-20">
-			<img
-				class="rounded shadow-2xl shadow-white/10"
-				src={image}
-				alt={`Captura de pantalla del proyecto ${image} `}
-			/>
-			<h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-			<p class="text-lg mb-4 text-pretty">{description}</p>
-			<ul class="flex gap-x-2 flex-row">
-				{tags.map((tag) => (
-					<li>
-						<span
-							class={` flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
-						>
-							<tag.icon class="size-7" />
-							{tag.name}
-						</span>
-					</li>
-				))}
-			</ul>
-			<div class="border-b border-white mt-10" />
-		</article>
-	))
+  PROJECTS.map(({ image, title, description, tags, link, github, nameUrl }) => (
+    <article class="pb-8 px-4 flex flex-col items-center border border-gray-300 rounded-md mb-8 md:flex-row md:items-start md:justify-center">
+      <div class="mb-4 md:mr-4 md:mb-0 flex items-center justify-center h-full">
+        {" "}
+        {/* Cambio aquí */}
+        <img
+          class="rounded shadow-2xl shadow-white/10 w-32 h-auto md:w-auto md:h-40 mb-4 md:mb-0 mt-20"
+          src={image}
+          alt={`Captura de pantalla del proyecto ${image}`}
+        />
+      </div>
+      <div class="flex-1">
+        <h3 class="text-lg font-semibold text-yellow-200 mb-2">{title}</h3>
+        <p class="text-sm mb-4 text-pretty leading-relaxed text-center md:text-left">
+          {description}
+        </p>
+        <ul class="flex flex-wrap gap-x-1 justify-center md:justify-start">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-1 rounded-full text-xs ${tag.class} py-0.5 px-1`}
+              >
+                <tag.icon class="size-5" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <nav class="flex gap-2 mt-4 flex-wrap justify-center md:justify-start">
+          {link && (
+            <SocialPill href={link} rel="noopener noreferrer">
+              <WwwIcon class="size-4 md:size-6" />
+              {nameUrl}
+            </SocialPill>
+          )}
+          <SocialPill href={github} rel="noopener noreferrer">
+            <GithubIcon class="size-4 md:size-6" />
+            Github
+          </SocialPill>
+        </nav>
+      </div>
+    </article>
+  ))
 }
