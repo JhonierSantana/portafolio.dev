@@ -26,7 +26,7 @@ const PROJECTS = [
   {
     title: "Full-Stack | Inventario TallerWeb | Jhonier Santana",
     description:
-      "He desarrollador un sistema de inventario para un taller mecánico, conforme a las especificaciones proporcionadas. Este sistmea permite gestionar de manera eficiente el inventario de productos del taller, facilitando el registro, seguimiento y control de los productos disponibles.",
+      "He desarrollador un sistema de inventario para un taller mecánico, conforme a las especificaciones proporcionadas. Este sistema permite gestionar de manera eficiente el inventario de productos del taller, facilitando el registro, seguimiento y control de los productos disponibles.",
     github: "https://github.com/JhonierSantana/InvWeb",
     tags: [TAGS.PYTHON, TAGS.FLASK, TAGS.SQLITE, TAGS.HTML5, TAGS.CSS],
     image: "/projects/InvW.webp",
@@ -36,16 +36,18 @@ const PROJECTS = [
 
 {
   PROJECTS.map(({ image, title, description, tags, link, github, nameUrl }) => (
-    <article class="pb-8 px-4 flex flex-col items-center border border-gray-300 rounded-md mb-8 md:flex-row md:items-start md:justify-center">
-      <div class="mb-4 md:mr-4 md:mb-0 flex items-center justify-center h-full">
+    <article class="pb-4 px-4 flex flex-col items-center justify-center border border-gray-300 rounded-md mb-8 md:flex-row md:items-start md:justify-center">
+      <div class="mb-2 md:mr-4 md:mb-0 flex items-center justify-center h-full">
         <img
-          class="rounded shadow-2xl shadow-white/10 w-32 h-auto md:w-auto md:h-40 mb-4 md:mb-0 mt-20"
+          class="rounded shadow-2xl shadow-white/10 w-32 h-auto md:w-auto md:h-40 mb-4 md:mb-0 mt-20 pt-1"
           src={image}
           alt={`Captura de pantalla del proyecto ${image}`}
         />
       </div>
-      <div class="flex-1">
-        <h3 class="text-lg font-semibold text-yellow-200 mb-2">{title}</h3>
+      <div class="flex-1 flex flex-col justify-center items-center">
+        <h3 class="text-lg font-semibold text-yellow-200 mb-2 text-center mt-2">
+          {title}
+        </h3>
         <p class="text-sm mb-4 text-pretty leading-relaxed text-center md:text-left">
           {description}
         </p>
@@ -53,10 +55,9 @@ const PROJECTS = [
           {tags.map((tag) => (
             <li>
               <span
-                class={`flex gap-x-1 rounded-full text-xs ${tag.class} py-0.5 px-1`}
+                class={`flex items-center gap-x-1 rounded-full text-xs ${tag.class} py-0.5 px-1 pr-2`}
               >
-                <tag.icon class="size-5" />
-                {tag.name}
+                <tag.icon class="size-7 p-1" /> {tag.name}
               </span>
             </li>
           ))}
