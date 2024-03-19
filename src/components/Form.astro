@@ -50,6 +50,9 @@
 <script>
 	document.getElementById("submitBtn").addEventListener("click", function () {
 		var form = document.getElementById("form");
+		if (!form) {
+			return;
+		}
 		if (form.name.value.trim() === "") {
 			document.getElementById("errorMessage").classList.remove("hidden");
 			setTimeout(function () {
