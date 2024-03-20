@@ -14,59 +14,127 @@ import Form from "../components/Form.astro";
 import PhoneIcon from "../icons/Phone.astro";
 ---
 
+<style>
+	@keyframes float {
+		0% {
+			box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+			transform: translatey(0px);
+		}
+		50% {
+			box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+			transform: translatey(-20px);
+		}
+		100% {
+			box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+			transform: translatey(0px);
+		}
+	}
+
+	.container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 10px;
+	}
+
+	.avatar {
+		width: 165px;
+		height: 195px;
+		box-sizing: border-box;
+		border: 5px rgba(23, 63, 100, 0.349) solid;
+		border-radius: 45%;
+		overflow: hidden;
+		box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+		transform: translatey(0px);
+		animation: float 6s ease-in-out infinite;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.content {
+		width: 100%;
+		max-width: 600px;
+		padding: 20px 40px;
+		box-sizing: border-box;
+		text-align: center;
+	}
+
+	.suppoprt-me {
+		display: inline-block;
+		position: fixed;
+		bottom: 10px;
+		left: 10px;
+		width: 20vw;
+		max-width: 250px;
+		min-width: 200px;
+		z-index: 9;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+</style>
+
 <Layout
 	title="Portafolio | Jhonier Santana"
 	description="Contrata a Jhonier Santana para crear tu aplicacion web. Desarrollador Full Stack."
 >
 	<main class="px-4">
 		<SectionContainer id="top" class="py-44">
-			<img
-				class="rounded-full size-12"
-				src="../../public/projects/Jhonier.webp"
-				alt="Jhonier Foto"
-			/>
-			<h1
-				class="text-white text-3xl md:text-3xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
-			>
-				Sobre mi
-				<a
-					href="https://www.linkedin.com/in/jhonier-yesid-santana-pedroza-457492265/"
-					target="_blank"
-					rel="noopener"
-					class="flex justify-center items-center"
+			<div class="flex flex-col items-center justify-center">
+				<h1
+					class="text-3xl md:text-5xl font-bold text-center text-blue-100 border rounded-full p-3"
 				>
-					<Badge>Disponible para trabajar</Badge>
-				</a>
-			</h1>
-			<h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
-				<span
-					>Soy <span class="text-yellow-200/90"
-						>Desarrollador de Software Junior</span
-					> apasionado y altamente responsable, con mas de un año de dedicación
-					y estudios enfocados en el desarrollo tanto Fron-End como Back-End.
-					Soy del Socorro Santander y actualmente busco trabajo para ampliar
-					mi experiencia
-				</span>
-			</h2>
-			<nav class="flex gap-4 mt-8 flex-wrap">
-				<SocialPill
-					href="https://www.linkedin.com/in/jhonier-yesid-santana-pedroza-457492265/"
+					Jhonier Santana Desarrollador de Software
+				</h1>
+				<div
+					class="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start mt-8"
 				>
-					<LinkedInIcon class="size-4 md:size-6" />
-					LinkedIn
-				</SocialPill>
-				<SocialPill href="https://github.com/JhonierSantana">
-					<GithubIcon class="size-4 md:size-6" />
-					Github
-				</SocialPill>
-				<SocialPill
-					href="https://drive.google.com/file/d/10ES37AdOIXjBYsL3h42wMwUl-2vOiVmo/view?usp=sharing"
-					download
-				>
-					<DownloadIcon class="size-4 md:size-6" />
-					Descarga mi CV
-				</SocialPill>
-			</nav>
+					<div class="container">
+						<div class="avatar">
+							<img
+								class="rounded-full w-32 h-auto lg:w-48 lg:h-auto mb-6 lg:mr-6 lg:mb-0 center"
+								src="../../public/projects/Jhonier.webp"
+								alt="Jhonier Foto"
+							/>
+						</div>
+					</div>
+					<div class="text-white max-w-lg lg:max-w-[700px]">
+						<h2 class="text-xl lg:text-2xl opacity-80 text-wrap">
+							Soy <span class="text-yellow-200/90"
+								>Desarrollador de Software Junior</span
+							> apasionado y altamente responsable, con más de un año de dedicación
+							y estudios enfocados en el desarrollo tanto Front-End como Back-End.
+							Soy del Socorro Santander y actualmente busco trabajo para ampliar
+							mi experiencia.
+						</h2>
+						<nav class="flex gap-4 mt-8 flex-wrap">
+							<SocialPill
+								href="https://www.linkedin.com/in/jhonier-yesid-santana-pedroza-457492265/"
+							>
+								<LinkedInIcon class="size-4 md:size-6" />
+								LinkedIn
+							</SocialPill>
+							<SocialPill href="https://github.com/JhonierSantana">
+								<GithubIcon class="size-4 md:size-6" />
+								Github
+							</SocialPill>
+							<SocialPill
+								href="https://drive.google.com/file/d/10ES37AdOIXjBYsL3h42wMwUl-2vOiVmo/view?usp=sharing"
+								download
+							>
+								<DownloadIcon class="size-4 md:size-6" />
+								Descarga mi CV
+							</SocialPill>
+						</nav>
+					</div>
+				</div>
+			</div>
 		</SectionContainer>
 
 		<SectionContainer id="experiencia" class="py-44">

@@ -1,21 +1,81 @@
+<style>
+	.nav-link {
+		position: relative;
+	}
+
+	.nav-link.active::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: -10px;
+		width: 6px;
+		height: 6px;
+		background-color: yellow;
+		border-radius: 50%;
+		transform: translateY(-50%);
+	}
+</style>
+
 <div class="fixed top-0 left-0 z-50 h-screen flex items-center">
 	<aside
 		class="flex flex-col gap-y-4 bg-#8D05ED p-4 rounded h-full justify-center w-60"
 	>
 		<nav class="flex flex-col gap-y-8 opacity-80 mx-auto text-lg">
-			<a class="hover:text-yellow-200 hover:underline" href="#top"
-				>Sobre mi</a
+			<a
+				class="nav-link hover:text-yellow-200 hover:underline"
+				href="#top">Sobre mi</a
 			>
-			<a class="hover:text-yellow-200 hover:underline" href="#experiencia"
-				>Experiencia</a
+			<a
+				class="nav-link hover:text-yellow-200 hover:underline"
+				href="#experiencia">Experiencia</a
 			>
-			<a class="hover:text-yellow-200 hover:underline" href="#portafolio"
-				>Portafolio</a
+			<a
+				class="nav-link hover:text-yellow-200 hover:underline"
+				href="#portafolio">Portafolio</a
 			>
-			<a class="hover:text-yellow-200 hover:underline" href="#contacto"
-				>Contactame</a
+			<a
+				class="nav-link hover:text-yellow-200 hover:underline"
+				href="#contacto">Contactame</a
 			>
 		</nav>
 	</aside>
 	<div class="h-full border-l border-white"></div>
 </div>
+
+<script>
+	function setActiveNavLink() {
+		const sections = document.querySelectorAll("section");
+		const navLinks = document.querySelectorAll(".nav-link");
+		const lastSection = sections[sections.length - 1];
+
+		sections.forEach((section) => {
+			const top = section.offsetTop;
+			const height = section.offsetHeight;
+			if (window.scrollY >= top && window.scrollY < top + height) {
+				const id = section.getAttribute("id");
+				navLinks.forEach((link) => {
+					link.classList.remove("active");
+					if (link.getAttribute("href") === `#${id}`) {
+						link.classList.add("active");
+					}
+				});
+			}
+		});
+
+		const lastSectionTop = lastSection.offsetTop;
+		const lastSectionHeight = lastSection.offsetHeight;
+		if (
+			window.scrollY + window.innerHeight >=
+			lastSectionTop + lastSectionHeight
+		) {
+			navLinks.forEach((link) => {
+				link.classList.remove("active");
+				if (link.getAttribute("href") === `#contacto`) {
+					link.classList.add("active");
+				}
+			});
+		}
+	}
+
+	window.addEventListener("scroll", setActiveNavLink);
+</script>
