@@ -14,6 +14,11 @@
 		border-radius: 50%;
 		transform: translateY(-50%);
 	}
+	@media screen and (max-width: 768px) {
+		.fixed {
+			display: none;
+		}
+	}
 </style>
 
 <div class="fixed top-0 left-0 z-50 h-screen flex items-center">
@@ -39,7 +44,6 @@
 			>
 		</nav>
 	</aside>
-	<div class="h-full border-l border-white"></div>
 </div>
 
 <script>
