@@ -1,3 +1,4 @@
-![image](https://github.com/JhonierSantana/portafolio.dev/assets/101937551/d3664f7f-831c-45c4-bdb9-8c803d496d6c)
+![image](https://github.com/JhonierSantana/portafolio.dev/assets/101937551/23a76180-9406-45c5-9d35-1adc0059693d)
+
 
 https://portafolio-jhonier-santana.vercel.app/
